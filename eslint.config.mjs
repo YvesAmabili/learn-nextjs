@@ -19,7 +19,7 @@ const eslintConfig = [
     "next/typescript",
     "standard",
     "prettier"
-    //"plugin:tailwindcss/recommended"
+    // "plugin:tailwindcss/recommended"
   ),
   {
     rules: {
@@ -34,9 +34,7 @@ const eslintConfig = [
             "index",
             "object",
           ],
-
           "newlines-between": "always",
-
           pathGroups: [
             {
               pattern: "@app/**",
@@ -44,9 +42,7 @@ const eslintConfig = [
               position: "after",
             },
           ],
-
           pathGroupsExcludedImportTypes: ["builtin"],
-
           alphabetize: {
             order: "asc",
             caseInsensitive: true,
@@ -58,7 +54,6 @@ const eslintConfig = [
   },
   {
     files: ["**/*.ts", "**/*.tsx"],
-
     rules: {
       "no-undef": "off",
     },
