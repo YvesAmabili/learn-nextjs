@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,7 @@ const questions = [
     author: {
       _id: "1",
       name: "John Doe",
+      image: "https://github.com/shadcn.png",
     },
     upvotes: 10,
     views: 100,
@@ -27,7 +29,15 @@ const questions = [
       { _id: "1", name: "javascript" },
       { _id: "2", name: "react" },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image: "https://github.com/shadcn.png",
+    },
+    upvotes: 10,
+    views: 100,
+    answers: [],
+    createdAt: new Date(),
   },
   {
     _id: "3",
@@ -36,7 +46,15 @@ const questions = [
       { _id: "1", name: "javascript" },
       { _id: "2", name: "next.js" },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image: "https://github.com/shadcn.png",
+    },
+    upvotes: 10,
+    views: 100,
+    answers: [],
+    createdAt: new Date(),
   },
 ];
 
@@ -82,7 +100,7 @@ const Home = async ({ searchParams }: { searchParams: SearchParams }) => {
       <HomeFilter />
       <div className="mt-10 flex w-full flex-col gap-6">
         {filteredQuestions.map((question) => {
-          return <h1 key={question._id}>{question.title}</h1>;
+          return <QuestionCard key={question._id} question={question} />;
         })}
       </div>
     </>
