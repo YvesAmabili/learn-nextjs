@@ -3,10 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 import User from "@/database/user.model";
 import handleError from "@/lib/handlers/error";
 import { NotFoundError, ValidationError } from "@/lib/http-errors";
+import dbConnect from "@/lib/mongoose";
 import { UserSchema } from "@/lib/validations";
 
 export async function POST(request: NextRequest) {
   try {
+    await dbConnect();
     const body = await request.json();
     const { email } = body;
 
